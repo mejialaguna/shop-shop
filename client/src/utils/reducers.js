@@ -1,9 +1,10 @@
+import { useReducer } from "react";
+
 import {
   UPDATE_PRODUCTS,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
 } from "./actions";
-
 
 // Adding this code to the reducers.js file imports the possible actions we can perform and creates a function called reducer(). When the function executes, we pass the value of the action.type argument into a switch statement and compare it to our possible actions.
 export const reducer = (state, action) => {
@@ -32,3 +33,8 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+
+export function useProductReducer(initialState) {
+  return useReducer(reducer, initialState);
+}
