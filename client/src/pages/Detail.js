@@ -27,6 +27,7 @@ function Detail() {
      });
    }
  }, [products, data, dispatch, id]);
+ 
 
   return (
     <>
