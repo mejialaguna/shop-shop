@@ -21,3 +21,4 @@ const useStoreContext = () => {
 };
 
 export { StoreProvider, useStoreContext };
+//store provider is on app.js providing all data on a global scope

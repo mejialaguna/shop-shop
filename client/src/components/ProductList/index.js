@@ -8,16 +8,16 @@ import { UPDATE_PRODUCTS } from "../../utils/actions";
 import spinner from "../../assets/spinner.gif";
 
 function ProductList() {
- const [state, dispatch] = useStoreContext();
+  const [state, dispatch] = useStoreContext();
 
-const { currentCategory } = state;
+  const { currentCategory } = state; // comming from categoryMenu file setting the current category on a click event
 
 const { loading, data } = useQuery(QUERY_PRODUCTS);
 
 useEffect(() => {
   if (data) {
     dispatch({
-      type: UPDATE_PRODUCTS,
+      type: UPDATE_PRODUCTS, // setting products on global state
       products: data.products
     });
   }
@@ -27,6 +27,7 @@ function filterProducts() {
   if (!currentCategory) {
     return state.products;
   }
+  
 
   return state.products.filter(product => product.category._id === currentCategory);
 }
