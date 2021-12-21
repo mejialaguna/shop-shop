@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
+import { idbPromise } from "../../utils/helpers";
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,

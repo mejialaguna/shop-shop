@@ -26,6 +26,7 @@ const Cart = () => {
         <span role="img" aria-label="trash">
           🛒
         </span>
+        <span></span>
       </div>
     );
   }
