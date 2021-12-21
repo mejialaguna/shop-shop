@@ -32,6 +32,13 @@ function Detail() {
      });
    }
  }, [products, data, dispatch, id]);
+  
+  const addToCart = () => {
+    dispatch({
+      type: ADD_TO_CART,
+      product: { ...currentProduct, purchaseQuantity: 1 },
+    });
+  };
  
 
   return (
