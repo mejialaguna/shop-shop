@@ -2,11 +2,29 @@ import React from "react";
 import CartItem from "../CartItem";
 import Auth from "../../utils/auth";
 import "./style.css";
+import { useStoreContext } from "../../utils/GlobalState";
+import { TOGGLE_CART } from "../../utils/actions";
 
 const Cart = () => {
+  const [state, dispatch] = useStoreContext();
+
+  function toggleCart() {
+    dispatch({ type: TOGGLE_CART });
+  }
+  if (!state.cartOpen) {
+    return (
+      <div className="cart-closed" onClick={toggleCart}>
+        <span role="img" aria-label="trash">
+          🛒
+        </span>
+      </div>
+    );
+  }
   return (
     <div className="cart">
-      <div className="close">[close]</div>
+      <div className="close" onClick={toggleCart}>
+        [close]
+      </div>
       <h2>Shopping Cart</h2>
       <div>
         <CartItem
@@ -21,7 +39,7 @@ const Cart = () => {
           item={{
             name: "Soap",
             image: "soap.jpg",
-            price: 6,
+            price: 7,
             purchaseQuantity: 4,
           }}
         />
