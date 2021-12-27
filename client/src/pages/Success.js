@@ -22,6 +22,9 @@ function Success() {
           idbPromise("cart", "delete", item);
         });
         }
+        setTimeout(() => {
+           window.location.assign("/") 
+        }, 3000);
     }
 
     saveOrder();
